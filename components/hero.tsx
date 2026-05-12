@@ -71,23 +71,23 @@ export function Hero() {
           <div className="text-center">
             <div className="flex items-center justify-center gap-2">
               <Eye className="h-5 w-5 text-primary" />
-              <span className="text-3xl font-bold text-secondary-foreground">500+</span>
+              <span className="text-3xl font-bold text-foreground">500+</span>
             </div>
-            <p className="mt-2 text-sm text-secondary-foreground/50">Instalaciones completadas</p>
+            <p className="mt-2 text-sm text-foreground/50">Instalaciones completadas</p>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center gap-2">
               <Shield className="h-5 w-5 text-primary" />
-              <span className="text-3xl font-bold text-secondary-foreground">10+</span>
+              <span className="text-3xl font-bold text-foreground">10+</span>
             </div>
-            <p className="mt-2 text-sm text-secondary-foreground/50">Años de experiencia</p>
+            <p className="mt-2 text-sm text-foreground/50">Años de experiencia</p>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center gap-2">
               <Lock className="h-5 w-5 text-primary" />
-              <span className="text-3xl font-bold text-secondary-foreground">24/7</span>
+              <span className="text-3xl font-bold text-foreground">24/7</span>
             </div>
-            <p className="mt-2 text-sm text-secondary-foreground/50">Monitoreo continuo</p>
+            <p className="mt-2 text-sm text-foreground/50">Monitoreo continuo</p>
           </div>
         </div>
       </div>
