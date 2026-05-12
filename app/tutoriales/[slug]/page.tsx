@@ -2,80 +2,83 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight, CheckCircle, Clock, Lightbulb } from 'lucide-react'
 
-const tutorialsData: Record<string, { title: string; intro: string; duration: string; level: string; steps: { title: string; description: string }[]; tips: string[] }> = {
-  'acceso-remoto': {
-    title: 'Cómo acceder remotamente a tus cámaras',
-    intro: 'Con la aplicación iVMS-4500 podrás visualizar tus cámaras de seguridad desde cualquier lugar del mundo. Solo necesitas tu smartphone y los datos de conexión de tu grabador.',
-    duration: '8 min',
+interface Step {
+  title: string
+  description: string
+  image?: string | null
+  downloadUrl?: string | null
+}
+
+interface Tutorial {
+  title: string
+  intro: string
+  duration: string
+  level: string
+  steps: Step[]
+  tips: string[]
+}
+
+const tutorialsData: Record<string, Tutorial> = {
+  'como-puedo-ver-las-grabaciones-de-mis-camaras': {
+    title: '¿Cómo puedo ver las grabaciones de mis cámaras?',
+    intro: 'Al realizar la instalación, nuestro técnico le proporcionó todos los datos necesarios y el software a utilizar. Siga estos pasos para acceder a sus grabaciones.',
+    duration: '5 min',
     level: 'Principiante',
     steps: [
       {
-        title: 'Descarga la aplicación',
-        description: 'Descarga la app iVMS-4500 desde App Store o Google Play Store. Es gratuita y compatible con la mayoría de grabadores.',
+        title: 'Inicie sesión en su sistema',
+        description: 'Al hacer la instalación, nuestro técnico le proporcionó todos los datos necesarios y el software a utilizar.',
+        image: null,
+        downloadUrl: null,
       },
       {
-        title: 'Configura tu dispositivo',
-        description: 'Introduce los datos de tu grabador: dirección IP o dominio, puerto, usuario y contraseña proporcionados durante la instalación.',
+        title: 'Seleccione la cámara que desea comprobar',
+        description: 'En el panel principal seleccione la cámara de la que desea ver las grabaciones.',
+        image: null,
+        downloadUrl: null,
       },
       {
-        title: 'Accede en tiempo real',
-        description: 'Una vez configurado, podrás ver tus cámaras en directo desde cualquier lugar con conexión a internet.',
+        title: 'Compruebe sus grabaciones',
+        description: 'Le aparecerán las grabaciones del último mes de grabación.',
+        image: null,
+        downloadUrl: null,
       },
     ],
     tips: [
-      'Asegúrate de tener una buena conexión a internet para una visualización fluida',
-      'Guarda tus credenciales en un lugar seguro',
-      'Activa las notificaciones push para recibir alertas de movimiento',
+      'Asegúrese de tener instalado el software proporcionado durante la instalación',
+      'Si no recuerda sus credenciales, contacte con nosotros',
+      'Las grabaciones se conservan durante el último mes',
     ],
   },
-  'configuracion-grabador': {
-    title: 'Configuración inicial del grabador',
-    intro: 'La configuración inicial de tu grabador DVR/NVR es fundamental para garantizar el correcto funcionamiento de todo tu sistema de videovigilancia. Sigue estos pasos para una configuración básica.',
-    duration: '12 min',
-    level: 'Intermedio',
+  'tutorial-para-descargar-y-usar-anydesk': {
+    title: 'Tutorial para descargar y usar AnyDesk',
+    intro: 'AnyDesk es un software que nos permitirá tener control de su ratón desde nuestras oficinas con el fin de explicar o resolver cualquier pregunta. Una vez terminada la consulta, se hará una desconexión segura. En todo momento usted verá nuestras acciones desde su pantalla.',
+    duration: '5 min',
+    level: 'Principiante',
     steps: [
       {
-        title: 'Conexión a la red',
-        description: 'Conecta el grabador a tu router mediante cable Ethernet para garantizar una conexión estable.',
+        title: 'Descarga AnyDesk',
+        description: 'Haz clic en el botón de descarga para obtener el software.',
+        downloadUrl: 'https://anydesk.com/es/downloads/thank-you?dv=win_exe',
+        image: null,
       },
       {
-        title: 'Accede al menú de configuración',
-        description: 'Usando el monitor conectado al grabador, accede al menú principal para comenzar la configuración.',
+        title: 'Abre AnyDesk',
+        description: 'Haz clic en el software descargado para abrirlo. Si no lo encuentra, diríjase a su carpeta de Descargas y ahí lo encontrará.',
+        downloadUrl: null,
+        image: '/images/tutoriales/anydesk-paso1.png',
       },
       {
-        title: 'Establece la seguridad',
-        description: 'Crea un usuario y contraseña seguros. Usa combinaciones de letras, números y símbolos para mayor protección.',
+        title: 'Díganos su número de puesto de trabajo',
+        description: 'Cuando nos lo comunique e intentemos tener acceso remoto, le saldrá una pestaña para aceptarnos. Haga clic en Aceptar.',
+        downloadUrl: null,
+        image: '/images/tutoriales/anydesk-paso2.png',
       },
     ],
     tips: [
-      'Usa una contraseña de al menos 8 caracteres con mayúsculas y números',
-      'Configura la fecha y hora correctamente para que las grabaciones tengan marca temporal precisa',
-      'Realiza una copia de seguridad de la configuración una vez finalizada',
-    ],
-  },
-  'instalacion-camara-exterior': {
-    title: 'Instalación de cámara exterior',
-    intro: 'La instalación correcta de una cámara exterior es clave para maximizar la cobertura y garantizar la durabilidad del equipo. Te explicamos los pasos esenciales.',
-    duration: '15 min',
-    level: 'Avanzado',
-    steps: [
-      {
-        title: 'Elige la ubicación',
-        description: 'Selecciona un punto estratégico considerando los ángulos de visión, zonas de acceso y protección contra condiciones climáticas extremas.',
-      },
-      {
-        title: 'Fija el soporte',
-        description: 'Utiliza los tornillos y tacos adecuados al tipo de superficie (hormigón, ladrillo, madera). Asegura firmemente el soporte.',
-      },
-      {
-        title: 'Conecta y ajusta',
-        description: 'Pasa el cableado de forma protegida, conecta la cámara y ajusta el ángulo para obtener la cobertura óptima de la zona.',
-      },
-    ],
-    tips: [
-      'Instala la cámara a una altura de 2.5-3 metros para evitar manipulaciones',
-      'Protege las conexiones con cinta aislante de exterior',
-      'Verifica que la cámara no apunte directamente a fuentes de luz intensas',
+      'AnyDesk es completamente seguro — usted verá todo lo que hacemos en su pantalla',
+      'Puede cerrar la conexión en cualquier momento',
+      'Contacte con nosotros por teléfono o WhatsApp para iniciar la sesión de soporte',
     ],
   },
 }
@@ -94,7 +97,6 @@ export default async function TutorialPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero section */}
       <section className="relative overflow-hidden bg-secondary pt-32 pb-20">
         <div className="absolute inset-0 gradient-mesh opacity-30" />
         <div className="absolute inset-0 noise opacity-40" />
@@ -136,7 +138,6 @@ export default async function TutorialPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Steps */}
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-foreground">Pasos a seguir</h2>
@@ -153,12 +154,28 @@ export default async function TutorialPage({ params }: PageProps) {
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-card-foreground">{step.title}</h3>
                   <p className="mt-2 text-muted-foreground">{step.description}</p>
+                  {step.downloadUrl && (
+                    
+                    <a  href={step.downloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                    >
+                      Descargar AnyDesk
+                    </a>
+                  )}
+                  {step.image && (
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="mt-4 rounded-lg border border-border max-w-sm"
+                    />
+                  )}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Tips section */}
           <div className="mt-12 rounded-2xl border border-primary/20 bg-primary/5 p-8">
             <div className="flex items-center gap-3">
               <Lightbulb className="h-6 w-6 text-primary" />
@@ -174,7 +191,6 @@ export default async function TutorialPage({ params }: PageProps) {
             </ul>
           </div>
 
-          {/* Help section */}
           <div className="mt-12 rounded-2xl border border-border bg-card p-8 text-center">
             <h3 className="text-xl font-semibold text-card-foreground">¿Necesitas ayuda?</h3>
             <p className="mt-2 text-muted-foreground">

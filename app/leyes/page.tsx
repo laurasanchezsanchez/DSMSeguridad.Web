@@ -3,25 +3,53 @@ import Link from 'next/link'
 
 const laws = [
   {
-    title: 'Ley Orgánica de Protección de Datos (LOPD)',
-    description: 'Normativa española sobre protección de datos personales y derechos digitales.',
-    date: 'Actualizada 2018',
+    title: 'Ley Orgánica de Seguridad Privada (BOE-A-2017-6606)',
+    description: 'Texto consolidado de la normativa de seguridad privada en España.',
+    date: 'Consolidado 2017',
+    file: '/pdfs/leyes/0_BOE-A-2017-6606-consolidado.pdf',
   },
   {
-    title: 'Reglamento General de Protección de Datos (RGPD)',
-    description: 'Reglamento europeo que regula el tratamiento de datos personales en la UE.',
-    date: 'Vigente desde 2018',
+    title: 'Reglamento de Seguridad Privada RD 2364/1994',
+    description: 'Reglamento que desarrolla la normativa de seguridad privada.',
+    date: '1994',
+    file: '/pdfs/leyes/1_RD_2364_1994_reglamento_seguridad_privada.pdf',
   },
   {
-    title: 'Ley de Seguridad Privada 5/2014',
+    title: 'Instrucción INT/316/2011 - Alarmas',
+    description: 'Normativa sobre sistemas de alarma en establecimientos y áreas.',
+    date: '2011',
+    file: '/pdfs/leyes/2_INT_316_2011_BOE-A-2011-3170_alarmas.pdf',
+  },
+  {
+    title: 'Instrucción INT/314/2011 - Empresas',
+    description: 'Normativa sobre empresas de seguridad privada.',
+    date: '2011',
+    file: '/pdfs/leyes/3_INT_314_2011_BOE-A-2011-3168_empresas.pdf',
+  },
+  {
+    title: 'Instrucción INT/315/2011 - Comisiones Mixtas',
+    description: 'Normativa sobre comisiones mixtas de seguridad privada.',
+    date: '2011',
+    file: '/pdfs/leyes/5__INT_315_2011__BOE-A-2011-3169_comisiones_mixtas.pdf',
+  },
+  {
+    title: 'BOE-A-2011-3172 - Personal de Seguridad',
+    description: 'Normativa sobre el personal de seguridad privada.',
+    date: '2011',
+    file: '/pdfs/leyes/6_BOE-A-2011-3172_personal.pdf',
+  },
+  {
+    title: 'Ley de Seguridad Privada 5/2014 (BOE-A-2014-3329)',
     description: 'Marco legal para empresas de seguridad privada y sus servicios en España.',
-    date: 'Actualizada 2023',
+    date: '2014',
+    file: '/pdfs/leyes/BOE-A-2014-3329_1.pdf',
   },
   {
-    title: 'Instrucción 1/2006 AEPD',
-    description: 'Instrucción sobre videovigilancia en espacios públicos y privados.',
-    date: 'En vigor',
-  },
+    title: 'Código Técnico de Edificación - Anexo Incendios',
+    description: 'Normativa técnica sobre protección contra incendios en edificios.',
+    date: 'Vigente',
+    file: '/pdfs/leyes/Código_Técnico_Edificación_anexo_incendios.pdf',
+  }
 ]
 
 export default function LeyesPage() {
@@ -76,10 +104,10 @@ export default function LeyesPage() {
                     <span className="mt-2 inline-block text-xs font-medium text-primary">{law.date}</span>
                   </div>
                 </div>
-                <button className="flex shrink-0 items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:shadow-primary/25">
+                <a href={law.file} target="_blank" rel="noopener noreferrer" className="flex shrink-0 items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:shadow-primary/25">
                   <Download className="h-4 w-4" />
                   <span className="hidden sm:inline">Descargar PDF</span>
-                </button>
+                </a>
               </div>
             ))}
           </div>

@@ -3,28 +3,20 @@ import { Play, Smartphone, Settings, Camera, ArrowLeft, ArrowRight, Clock, Gradu
 
 const tutorials = [
   {
-    slug: 'acceso-remoto',
-    title: 'Cómo acceder remotamente a tus cámaras',
-    description: 'Aprende a ver tus cámaras desde cualquier lugar con tu móvil o tablet.',
-    icon: Smartphone,
-    duration: '8 min',
+    slug: 'como-puedo-ver-las-grabaciones-de-mis-camaras',
+    title: '¿Cómo puedo ver las grabaciones de mis cámaras?',
+    description: 'Aprende a acceder a las grabaciones de tu sistema de videovigilancia paso a paso.',
+    icon: Camera,
+    duration: '5 min',
     level: 'Principiante',
   },
   {
-    slug: 'configuracion-grabador',
-    title: 'Configuración inicial del grabador',
-    description: 'Guía paso a paso para configurar tu grabador NVR o DVR por primera vez.',
-    icon: Settings,
-    duration: '12 min',
-    level: 'Intermedio',
-  },
-  {
-    slug: 'instalacion-camara-exterior',
-    title: 'Instalación de cámara exterior',
-    description: 'Cómo instalar correctamente una cámara en exteriores de forma segura.',
-    icon: Camera,
-    duration: '15 min',
-    level: 'Avanzado',
+    slug: 'tutorial-para-descargar-y-usar-anydesk',
+    title: 'Tutorial para descargar y usar AnyDesk',
+    description: 'Permite a nuestro equipo técnico ayudarte de forma remota desde nuestras oficinas.',
+    icon: Smartphone,
+    duration: '5 min',
+    level: 'Principiante',
   },
 ]
 

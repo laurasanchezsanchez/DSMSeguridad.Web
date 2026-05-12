@@ -8,40 +8,53 @@ const categories = ['Todas', 'Cámaras', 'Grabadores', 'Accesorios']
 
 const manuals = [
   {
-    title: 'Manual cámara Hikvision DS-2CD2143G2',
+    title: 'AC10x User Manual',
     category: 'Cámaras',
-    brand: 'Hikvision',
-    pages: '45 páginas',
-  },
-  {
-    title: 'Manual grabador Dahua XVR5104HS',
-    category: 'Grabadores',
-    brand: 'Dahua',
-    pages: '78 páginas',
-  },
-  {
-    title: 'Manual cámara domo interior',
-    category: 'Cámaras',
-    brand: 'Hikvision',
-    pages: '32 páginas',
-  },
-  {
-    title: 'Manual cámara bullet exterior IP67',
-    category: 'Cámaras',
-    brand: 'Dahua',
-    pages: '38 páginas',
-  },
-  {
-    title: 'Manual grabador NVR 8 canales',
-    category: 'Grabadores',
-    brand: 'Hikvision',
-    pages: '92 páginas',
-  },
-  {
-    title: 'Manual fuente alimentación 12V',
-    category: 'Accesorios',
     brand: 'Genérico',
-    pages: '12 páginas',
+    pages: '',
+    file: '/pdfs/manuales/AC10x_-_User_Manual.pdf',
+  },
+  {
+    title: 'HiWatch Network Camera User Manual',
+    category: 'Cámaras',
+    brand: 'HiWatch',
+    pages: '',
+    file: '/pdfs/manuales/HiWatch_Series_UD09513B_Baseline_User_Manual_of_Network_Camera_20180705.pdf',
+  },
+  {
+    title: 'Safire - Configuración reglas VCA en DVR',
+    category: 'Grabadores',
+    brand: 'Safire',
+    pages: '',
+    file: '/pdfs/manuales/SAFIRE_How_to_setup_VCA_rules_in_a_DVR.pdf',
+  },
+  {
+    title: 'SF-AC3002 Manual de usuario',
+    category: 'Cámaras',
+    brand: 'Safire',
+    pages: '',
+    file: '/pdfs/manuales/SF-AC3002_V1.0.1_20190520.pdf',
+  },
+  {
+    title: 'SF-MNT10BNC-XGA Manual de montaje',
+    category: 'Accesorios',
+    brand: 'Safire',
+    pages: '',
+    file: '/pdfs/manuales/SF-MNT10BNC-XGA_ES.pdf',
+  },
+  {
+    title: 'Safire Control Center - Manual de usuario',
+    category: 'Grabadores',
+    brand: 'Safire',
+    pages: '',
+    file: '/pdfs/manuales/user_manual_of_safire_control_center.pdf',
+  },
+  {
+    title: 'XD10TTAM - Manual de instalación',
+    category: 'Cámaras',
+    brand: 'Genérico',
+    pages: '',
+    file: '/pdfs/manuales/xd10ttam-installation-manual-multi-language-rins1398-5.pdf',
   },
 ]
 
@@ -160,10 +173,10 @@ export default function ManualesPage() {
                         </div>
                       </div>
                     </div>
-                    <button className="flex shrink-0 items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:shadow-primary/25">
+                    <a href={manual.file} target="_blank" rel="noopener noreferrer" className="flex shrink-0 items-center gap-2 rounded-lg bg-primary/10 px-4 py-2.5 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:shadow-primary/25">
                       <Download className="h-4 w-4" />
                       <span className="hidden sm:inline">Descargar</span>
-                    </button>
+                    </a>
                   </div>
                 ))}
               </div>
